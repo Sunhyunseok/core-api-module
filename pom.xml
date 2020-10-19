@@ -19,11 +19,12 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <Project.reporting.outputEncoding>UTF-8</Project.reporting.outputEncoding>
 	</properties>
-	<repositories>
+	
+	 <repositories>
         <repository>
             <id>maven-public</id>
             <name>jdp maven repository for public dependency</name>
-            <url>http://192.168.143.97:8081/repository/maven-public/</url>
+            <url>http://3.34.143.195:8081/repository/maven-public/</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
@@ -37,7 +38,7 @@
         <pluginRepository>
             <id>maven-public</id>
             <name>jdp maven repository for public plugin</name>
-            <url>http://192.168.143.97:8081/repository/maven-public/</url>
+            <url>http://3.34.143.195/:8081/repository/maven-public/</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
@@ -51,14 +52,16 @@
         <snapshotRepository>
             <id>maven-snapshots</id>
             <name>jdp maven snapshot repository for development result</name>
-            <url>http://192.168.143.97:8081/repository/maven-snapshots/</url>
+            <url>http://3.34.143.195:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
         <repository>
             <id>maven-releases</id>
             <name>jdp maven release repository for development result</name>
-            <url>http://192.168.143.97:8081/repository/maven-releases/</url>
+            <url>http://3.34.143.195:8081/repository/maven-releases/</url>
         </repository>
     </distributionManagement>
+    
+    
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
