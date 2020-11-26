@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.sk.jdp.common.core.response.BizResponseCode;
-import com.sk.jdp.common.core.response.ResponseObject;
-import com.sk.jdp.common.core.response.ResponseStatusObject;
+import com.sk.jdp.common.core.model.response.BizResponseCode;
+import com.sk.jdp.common.core.model.response.ResponseObject;
+import com.sk.jdp.common.core.model.response.ResponseStatusObject;
 
 @RestControllerAdvice
 public class HttpExceptionHandler {

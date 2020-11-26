@@ -10,6 +10,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+
+
+/**
+ * @ClassName WebMvcJsonConfiguration.java
+ * @Description JSON XSS 필터 설정
+ */
 @Configuration
 public class WebMvcJsonConfiguration {
 

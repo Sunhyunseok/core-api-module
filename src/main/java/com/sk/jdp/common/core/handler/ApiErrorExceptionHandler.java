@@ -17,8 +17,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.sk.jdp.common.core.exception.ApiErrorException;
-import com.sk.jdp.common.core.response.ResponseObject;
-import com.sk.jdp.common.core.response.ResponseStatusObject;
+import com.sk.jdp.common.core.model.response.BizResponseCode;
+import com.sk.jdp.common.core.model.response.ResponseObject;
+import com.sk.jdp.common.core.model.response.ResponseStatusObject;
+
+
+
 
 @RestControllerAdvice
 @Order(Ordered.LOWEST_PRECEDENCE)
@@ -29,6 +33,13 @@ public class ApiErrorExceptionHandler {
 	@Autowired
 	private MessageSourceAccessor messageSource;
 	
+	
+	/**
+	 * request와 error를 전달 받아 ResponseObject 타입으로 리턴한다.
+	 * @param request
+	 * @param ex
+	 * @return
+	 */
 	@ExceptionHandler(ApiErrorException.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ResponseObject handleApiErrorException(HttpServletRequest request, ApiErrorException ex) {
@@ -51,7 +62,7 @@ public class ApiErrorExceptionHandler {
 			
 		} catch(Exception e) {
 			log.error("apiErrorException Handler", e);
-			responseStatus.setRspCode("error.99999");
+			responseStatus.setRspCode(BizResponseCode.PROCESS_ERROR.getCode());
 			responseStatus.setRspMessage("시스템 점검 중입니다.");
 		}
 		return new ResponseObject(responseStatus);

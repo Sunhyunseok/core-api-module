@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
-import com.sk.jdp.common.core.response.ResponseObject;
-import com.sk.jdp.common.core.response.ResponseStatusObject;
+import com.sk.jdp.common.core.model.response.BizResponseCode;
+import com.sk.jdp.common.core.model.response.ResponseObject;
+import com.sk.jdp.common.core.model.response.ResponseStatusObject;
 
 @RestControllerAdvice
 @Order(Ordered.LOWEST_PRECEDENCE)
@@ -29,7 +30,7 @@ public class FileErrorExceptionHandler {
 		ResponseStatusObject responseStatus = new ResponseStatusObject();
 		responseStatus.setRspTime(LocalDateTime.now());
 		responseStatus.setReqUri(request.getRequestURI());
-		responseStatus.setRspCode("error.file");
+		responseStatus.setRspCode(BizResponseCode.FILE_UPLOAD_ERROR.getCode());
 		responseStatus.setRspMessage(ex.getMessage());
 		log.error("fileErrorExecption handler - maxsize:{}, message:{}",ex.getMaxUploadSize(),ex.getMessage());
 	

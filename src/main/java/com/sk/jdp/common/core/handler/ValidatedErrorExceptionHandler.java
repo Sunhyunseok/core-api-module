@@ -24,9 +24,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.sk.jdp.common.core.response.ResponseErrorObject;
-import com.sk.jdp.common.core.response.ResponseObject;
-import com.sk.jdp.common.core.response.ResponseStatusObject;
+import com.sk.jdp.common.core.model.response.BizResponseCode;
+import com.sk.jdp.common.core.model.response.ResponseErrorObject;
+import com.sk.jdp.common.core.model.response.ResponseObject;
+import com.sk.jdp.common.core.model.response.ResponseStatusObject;
 
 
 /**
@@ -117,18 +118,18 @@ public class ValidatedErrorExceptionHandler {
 						errorObject.setErrorMessage(e.getMessage());
 					}
 				} else {
-					errorObject.setErrorCode("valid.default");
+					errorObject.setErrorCode(BizResponseCode.VALIDATION_ERROR.getCode());
 					errorObject.setErrorMessage(msg);
 				}
 				errors.add(errorObject);
 			}
 			
 			responseStatus.setErrors(errors);
-			responseStatus.setRspCode("error.99999");
+			responseStatus.setRspCode(BizResponseCode.VALIDATION_ERROR.getCode());
 			responseStatus.setRspMessage("validated exception");
 		} catch(Exception e) {
 			log.error("ValidatedErrorException handler",e);
-			responseStatus.setRspCode("error.99999");
+			responseStatus.setRspCode(BizResponseCode.VALIDATION_ERROR.getCode());
 			responseStatus.setRspMessage("system error(validated exception)");
 		}
 		return new ResponseObject(responseStatus);

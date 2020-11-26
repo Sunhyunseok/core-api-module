@@ -1,9 +1,5 @@
 package com.sk.jdp.common.core.exception;
 
-import lombok.Getter;
-import lombok.Setter;
-
-
 public class ApiErrorException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;

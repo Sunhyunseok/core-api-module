@@ -10,6 +10,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+
+
+/**
+ * @ClassName CommonLoggingAop.java
+ * @Description 공통 로깅 AOP 설정
+ */
 @Aspect
 @Component
 public class CommonLoggingAop {

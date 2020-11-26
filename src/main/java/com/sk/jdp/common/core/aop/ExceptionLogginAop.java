@@ -13,6 +13,12 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import lombok.extern.slf4j.Slf4j;
 
+
+
+/**
+ * @ClassName ExceptionLogginAop.java
+ * @Description 예외처리 로깅 AOP 설정
+ */
 @Slf4j
 @Aspect
 @Component

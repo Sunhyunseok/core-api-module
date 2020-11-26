@@ -1,13 +1,17 @@
 package com.sk.jdp.common.core.configuration.xss.json;
 
-
-
 import org.apache.commons.text.StringEscapeUtils;
 
 import com.fasterxml.jackson.core.SerializableString;
 import com.fasterxml.jackson.core.io.CharacterEscapes;
 import com.fasterxml.jackson.core.io.SerializedString;
 
+
+
+/**
+ * @ClassName HtmlCharacterEscapes.java
+ * @Description Json XSS 필터를 위한 HTML 특수 문자 처리
+ */
 public class HtmlCharacterEscapes extends CharacterEscapes {
 
     private final int[] asciiEscapes;

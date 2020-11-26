@@ -17,9 +17,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import com.sk.jdp.common.core.model.BaseObject;
-import com.sk.jdp.common.core.response.ResponseObject;
-import com.sk.jdp.common.core.response.ResponseStatusObject;
-import com.sk.jdp.common.core.util.model.PaginatedResponse;
+import com.sk.jdp.common.core.model.response.BizResponseCode;
+import com.sk.jdp.common.core.model.response.PaginatedResponse;
+import com.sk.jdp.common.core.model.response.ResponseObject;
+import com.sk.jdp.common.core.model.response.ResponseStatusObject;
 
 @RestControllerAdvice
 public class HttpResponseHandler implements ResponseBodyAdvice<Object> {
@@ -42,7 +43,7 @@ public class HttpResponseHandler implements ResponseBodyAdvice<Object> {
 				(body instanceof List &&
 						((List<?>) body).stream().noneMatch((o -> !(o instanceof BaseObject))))) {
 			ResponseStatusObject responseStatus = new ResponseStatusObject();
-			responseStatus.setRspCode("0000");
+			responseStatus.setRspCode(BizResponseCode.OK.getCode());
 			responseStatus.setRspMessage("success");
 			responseStatus.setRspTime(LocalDateTime.now());
 			responseStatus.setReqUri(request.getURI().toString());
@@ -59,7 +60,7 @@ public class HttpResponseHandler implements ResponseBodyAdvice<Object> {
 		ResponseStatusObject responseStatus = new ResponseStatusObject();
 		responseStatus.setRspTime(LocalDateTime.now());
 		responseStatus.setReqUri(request.getRequestURI());
-		responseStatus.setRspCode("500");
+		responseStatus.setRspCode(BizResponseCode.PROCESS_ERROR.getCode());
 		responseStatus.setRspMessage("시스템 점검 중 입니다.");
 		
 		ex.printStackTrace();
