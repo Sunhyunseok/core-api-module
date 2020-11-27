@@ -16,5 +16,5 @@ public class PaginatedResponse<T> {
 	/* 전체 데이터 건수 */
 	private long total;
 	/* 조회 데이터 */
-	private List<T> rows;
+	private List<T> results;
 }
